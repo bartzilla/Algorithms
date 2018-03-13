@@ -1,9 +1,11 @@
 package com.bartzilla;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class DuplicateInts {
 
@@ -33,21 +35,14 @@ public class DuplicateInts {
     // This method is O(n) which is good
     static int fastFirstDuplicateInt(final int[] array) {
 
-        Map<Integer, Integer> map = new LinkedHashMap<>();
+        Set<Integer> set = new HashSet<>();
 
         for (int i = 0; i < array.length; i++) {
-            if (map.containsKey(array[i])) {
-                int counter = map.get(array[i]) + 1;
-                map.put(array[i], counter);
-            } else {
-                map.put(array[i], 1);
+            if (set.contains(array[i])) {
+                return array[i];
             }
-        }
+            set.add(array[i]);
 
-        for (Integer key : map.keySet()) {
-            if (map.get(key) > 1) {
-                return key;
-            }
         }
 
         return -1;
@@ -56,22 +51,14 @@ public class DuplicateInts {
     // This method is O(n) which is good find all ints that repeat
     static List<Integer> allDuplicateInt(final int[] array) {
 
-        Map<Integer, Integer> map = new LinkedHashMap<>();
         List<Integer> repeated = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
 
         for (int i = 0; i < array.length; i++) {
-            if (map.containsKey(array[i])) {
-                int counter = map.get(array[i]) + 1;
-                map.put(array[i], counter);
-            } else {
-                map.put(array[i], 1);
+            if (set.contains(array[i])) {
+                repeated.add(array[i]);
             }
-        }
-
-        for (Integer key : map.keySet()) {
-            if (map.get(key) > 1) {
-                repeated.add(key);
-            }
+            set.add(array[i]);
         }
 
         return repeated;
