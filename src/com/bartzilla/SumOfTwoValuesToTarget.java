@@ -3,14 +3,14 @@ package com.bartzilla;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SumOfTwoValues {
+public class SumOfTwoValuesToTarget {
 
     public static void main(String[] args) {
 
         int[] array = {1, 2, 4, 4};
         int target = 8;
 
-        System.out.println(SumOfTwoValues.containsTwoIntegersEqualTarget(array, target));
+        System.out.println(SumOfTwoValuesToTarget.containsTwoIntegersEqualTarget(array, target));
     }
 
 
