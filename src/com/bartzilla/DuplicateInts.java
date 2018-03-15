@@ -42,7 +42,6 @@ public class DuplicateInts {
                 return array[i];
             }
             set.add(array[i]);
-
         }
 
         return -1;
